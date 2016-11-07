@@ -19,7 +19,7 @@
     "sanitization"
   ],
   "author": "Alessandro Segala, SixthMonkey, Zap In",
-  "license": "MIT",
+  "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/EgoAleSum/SMClean/issues"
   },

@@ -32,7 +32,7 @@ let SMClean = {
 
     /**
      * Clean a string representing a HTML color.
-     * Accepts only colors that can be used in HTML input[type=color] fields: #[A-Fa-f0-9]{6} (a subset of valid CSS colors)
+     * Accept only colors that can be used in HTML input[type=color] fields: #[A-Fa-f0-9]{6} (a subset of valid CSS colors)
      * 
      * @param {*} val - Value to clean
      * @returns {string|null} Cleaned color or `null` 
