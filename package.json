@@ -1,6 +1,6 @@
 {
   "name": "smclean",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "String cleanup utilities and input sanitization",
   "main": "index.js",
   "directories": {
@@ -25,14 +25,14 @@
   },
   "homepage": "https://github.com/EgoAleSum/SMClean#readme",
   "dependencies": {
-    "moment": "2.15.x",
+    "moment": "2.17.x",
     "moment-timezone": "0.5.x",
     "smhelper": "1.0.x",
     "unorm": "1.4.x",
-    "validator": "6.1.x"
+    "validator": "6.2.x"
   },
   "devDependencies": {
-    "mocha": "3.1.x",
+    "mocha": "3.2.x",
     "should": "11.1.x"
   }
 }
