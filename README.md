@@ -1,5 +1,8 @@
 # SMClean
 
+[![Dependency Status](https://david-dm.org/EgoAleSum/SMClean.svg?style=flat)](https://david-dm.org/EgoAleSum/SMClean)
+[![devDependency Status](https://david-dm.org/EgoAleSum/SMClean/dev-status.svg?style=flat)](https://david-dm.org/EgoAleSum/SMClean#info=devDependencies)
+
 String cleanup utilities and input sanitization
 
 This code is licensed under the terms of the BSD (2-clause) license (see LICENSE.md).

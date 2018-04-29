@@ -1,6 +1,5 @@
-'use strict';
+'use strict'
 
-const unorm = require('unorm')
 const validator = require('validator')
 const moment = require('moment-timezone')
 const SMHelper = require('smhelper')
@@ -158,7 +157,7 @@ let SMClean = {
         val = SMHelper.toStringSafe(val)
         
         // Allow only ASCII characters between 0x21 and 0x7E, excluding control characters
-        val = unorm.nfd(val) // Normalize to NFD before removing Unicode characters
+        val = val.normalize('NFD') // Normalize to NFD before removing Unicode characters
         val = validator.whitelist(val, '\x21-\x7E')
         
         // Require 8 characters or longer, up to 30
@@ -199,7 +198,7 @@ let SMClean = {
         }
         
         // Normalize the string
-        val = unorm.nfc(val)
+        val = val.normalize('NFC')
         if(!val) {
             return ''
         }
