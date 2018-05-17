@@ -1,6 +1,6 @@
 {
   "name": "smclean",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "String cleanup utilities and input sanitization",
   "main": "index.js",
   "directories": {
