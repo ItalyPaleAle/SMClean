@@ -80,30 +80,28 @@
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> SMClean = <span class="hljs-built_in">require</span>(<span class="hljs-string">'smclean'</span>)</code></pre>
 				<p>The <code>SMClean</code> object contains the following methods:</p>
 				<ul>
-					<li><strong><code>bool(val)</code></strong>: Returns the boolean false if val is any false-y value, or the strings &#39;false&#39;, &#39;0&#39;, &#39;no&#39; and &#39;off&#39; (case-insensitive). Returns the boolean true in all other cases.<ul>
-							<li><strong><code>color(val)</code></strong>: Cleans a string representing an HTML color, accepting <code>#[A-Fa-f0-9]{6}</code> (format accepted by the HTML <code>input[type=color]</code> field, which is a subset of all the CSS colors). Returns null for invalid input.</li>
-							<li><strong><code>day(val)</code></strong>: Cleans a string representing a day in format YYYY(-)MM(-)DD, ensuring it&#39;s a valid day (e.g. accepts February 29 only on leap years, etc). Returns null for invalid input.</li>
-							<li><strong><code>email(val)</code></strong>: Cleans a string representing an email address. Returns null for invalid input.</li>
-							<li><strong><code>float(val)</code></strong>: Cleans a string representing a floating point number; invalid inputs are converted to 0.</li>
-							<li><strong><code>int(val)</code></strong>: Cleans a string representing an integer; invalid inputs are converted to 0.</li>
-							<li><strong><code>objectId(val)</code></strong>: Cleans a string representing a MongoDB ObjectId. Returns null for invalid input.</li>
-							<li><strong><code>password(val, options)</code></strong>: Cleans a password so it&#39;s a string, removing all Unicode ones (because of issues with encoding, homographs, etc), as well as ASCII control characters. Returns null for input that doesn&#39;t satisfy the requirements. The options parameter is an object with the following keys and default values:<ul>
-									<li><code>options.minLength = 0</code> When set to a positive integer, if the string is shorter than minLength it will be rejected and an empty string is returned by the method</li>
-									<li><code>options.maxLength = 0</code> When set to a positive integer, if the string is longer than maxLength it will be rejected and an empty string is returned by the method</li>
-								</ul>
-							</li>
-							<li><strong><code>string(val, options)</code></strong>: Cleans a string: normalizes Unicode characters (canonicalize to NFC), trims whitespaces from the beginning and end, strips ASCII control characters (optionally preserving newline characters), and encodes HTML special characters/tags. Returns an empty string if input is invalid. The options parameter is an object with the following keys and default values:<ul>
-									<li><code>options.keepHTML = false</code> If false, HTML special characters are converted to their entities, to protect against XSS attacks</li>
-									<li><code>options.keepNewLines = false</code> If false, newline characters (\n and \r) are stripped from the string</li>
-									<li><code>options.minLength = 0</code> When set to a positive integer, if the string is shorter than minLength it will be rejected and an empty string is returned by the method</li>
-									<li><code>options.maxLength = 0</code> When set to a positive integer, if the string is longer than maxLength it will be rejected and an empty string is returned by the method</li>
-								</ul>
-							</li>
-							<li><strong><code>time(val, timezone)</code></strong>: Cleans a time and date representation, either a UNIX timestamp or a ISO 8601 full date. Returns a JavaScript <code>Date</code> object, or null in case of error. The optional parameter timezone (which defaults to the system timezone) is used as fallback when passing a ISO 8601-formatted string that does not include a TZ specifier.</li>
-							<li><strong><code>timezone(val)</code></strong>: Cleans a string representing a timezone identifier, according to the &quot;tz database&quot;. Returns null if the string is not a valid timezone identifier.</li>
-							<li><strong><code>url(val)</code></strong>: Cleans a string representing a valid HTTP or HTTPS URL. Returns null for invalid input.</li>
+					<li><strong><code>bool(val)</code></strong>: Returns the boolean false if val is any false-y value, or the strings &#39;false&#39;, &#39;0&#39;, &#39;no&#39; and &#39;off&#39; (case-insensitive). Returns the boolean true in all other cases.</li>
+					<li><strong><code>color(val)</code></strong>: Cleans a string representing an HTML color, accepting <code>#[A-Fa-f0-9]{6}</code> (format accepted by the HTML <code>input[type=color]</code> field, which is a subset of all the CSS colors). Returns null for invalid input.</li>
+					<li><strong><code>day(val)</code></strong>: Cleans a string representing a day in format YYYY(-)MM(-)DD, ensuring it&#39;s a valid day (e.g. accepts February 29 only on leap years, etc). Returns null for invalid input.</li>
+					<li><strong><code>email(val)</code></strong>: Cleans a string representing an email address. Returns null for invalid input.</li>
+					<li><strong><code>float(val)</code></strong>: Cleans a string representing a floating point number; invalid inputs are converted to 0.</li>
+					<li><strong><code>int(val)</code></strong>: Cleans a string representing an integer; invalid inputs are converted to 0.</li>
+					<li><strong><code>objectId(val)</code></strong>: Cleans a string representing a MongoDB ObjectId. Returns null for invalid input.</li>
+					<li><strong><code>password(val, options)</code></strong>: Cleans a password so it&#39;s a string, removing all Unicode ones (because of issues with encoding, homographs, etc), as well as ASCII control characters. Returns null for input that doesn&#39;t satisfy the requirements. The options parameter is an object with the following keys and default values:<ul>
+							<li><code>options.minLength = 0</code> When set to a positive integer, if the string is shorter than minLength it will be rejected and an empty string is returned by the method</li>
+							<li><code>options.maxLength = 0</code> When set to a positive integer, if the string is longer than maxLength it will be rejected and an empty string is returned by the method</li>
 						</ul>
 					</li>
+					<li><strong><code>string(val, options)</code></strong>: Cleans a string: normalizes Unicode characters (canonicalize to NFC), trims whitespaces from the beginning and end, strips ASCII control characters (optionally preserving newline characters), and encodes HTML special characters/tags. Returns an empty string if input is invalid. The options parameter is an object with the following keys and default values:<ul>
+							<li><code>options.keepHTML = false</code> If false, HTML special characters are converted to their entities, to protect against XSS attacks</li>
+							<li><code>options.keepNewLines = false</code> If false, newline characters (\n and \r) are stripped from the string</li>
+							<li><code>options.minLength = 0</code> When set to a positive integer, if the string is shorter than minLength it will be rejected and an empty string is returned by the method</li>
+							<li><code>options.maxLength = 0</code> When set to a positive integer, if the string is longer than maxLength it will be rejected and an empty string is returned by the method</li>
+						</ul>
+					</li>
+					<li><strong><code>time(val, timezone)</code></strong>: Cleans a time and date representation, either a UNIX timestamp or a ISO 8601 full date. Returns a JavaScript <code>Date</code> object, or null in case of error. The optional parameter timezone (which defaults to the system timezone) is used as fallback when passing a ISO 8601-formatted string that does not include a TZ specifier.</li>
+					<li><strong><code>timezone(val)</code></strong>: Cleans a string representing a timezone identifier, according to the &quot;tz database&quot;. Returns null if the string is not a valid timezone identifier.</li>
+					<li><strong><code>url(val)</code></strong>: Cleans a string representing a valid HTTP or HTTPS URL. Returns null for invalid input.</li>
 				</ul>
 				<h3 id="example">Example</h3>
 				<p>Check the test suite for complete examples.</p>
