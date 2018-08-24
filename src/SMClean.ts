@@ -29,7 +29,7 @@ namespace SMClean {
 
     /**
      * Cleans a string representing a HTML color.
-     * Accept only colors that can be used in HTML input[type=color] fields: #[A-Fa-f0-9]{6} (a subset of valid CSS colors)
+     * Accept only colors that can be used in HTML `input[type=color]` fields: `#[A-Fa-f0-9]{6}` (a subset of valid CSS colors)
      *
      * @param val - Value to clean
      * @returns Cleaned color or `null`
@@ -44,10 +44,10 @@ namespace SMClean {
     }
 
     /**
-     * Cleans a string representing a day in format YYYY(-)MM(-)DD.
+     * Cleans a string representing a day in format `YYYY(-)MM(-)DD`.
      *
      * @param val - Value to clean
-     * @returns Valid day in the YYYY-MM-DD format (dashes added if absent) or `null`
+     * @returns Valid day in the `YYYY-MM-DD` format (dashes added if absent) or `null`
      */
     export function day(val: any): string|null {
         val = SMClean.string(val, {keepHTML: true, minLength: 4})
