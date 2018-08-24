@@ -1,9 +1,8 @@
-'use strict'
-
-const should = require('should')
-const assert = require('assert')
-const SMClean = require('../index')
-const moment = require('moment-timezone')
+import 'mocha'
+import assert from 'assert'
+import moment from 'moment-timezone'
+import should from 'should'
+import SMClean from '../src/SMClean'
 
 describe('SMClean.js', () => {
 
@@ -24,7 +23,7 @@ describe('SMClean.js', () => {
             'timezone',
             'url'
         ]
-        
+
         assert.equal(Object.keys(SMClean).length, functionList.length)
         for(let func of functionList) {
             SMClean[func].should.be.type('function')
@@ -122,17 +121,24 @@ describe('SMClean.js', () => {
 
     it('Method: `password`', () => {
         should(SMClean.password('')).be.equal(null)
-        should(SMClean.password('short')).be.equal(null)
+        should(SMClean.password('short')).be.equal('short')
+        should(SMClean.password('short', {minLength: 8})).be.equal(null)
         should(SMClean.password('longEnough1')).be.equal('longEnough1')
-        should(SMClean.password('tooLong123456789012345678901234567890')).be.equal(null)
+        should(SMClean.password('tooLong123456789012345678901234567890')).be.equal('tooLong123456789012345678901234567890')
+        should(SMClean.password('tooLong123456789012345678901234567890', {maxLength: 30})).be.equal(null)
         should(SMClean.password('validPassword1')).be.equal('validPassword1')
+        should(SMClean.password('\n\n\n\n\n\n\n\n\n\n')).be.equal(null)
         should(SMClean.password('validPassword1!')).be.equal('validPassword1!')
         should(SMClean.password("\x10unicodePass2:\u0061\u0300\u00E8")).be.equal("unicodePass2:ae") // Remove Unicode and control characters
+        assert.throws(() => {
+            SMClean.password('aaaa', {minLength: 6, maxLength: 5})
+        })
     })
 
     it('Method: `string`', () => {
         should(SMClean.string('')).be.equal('')
         should(SMClean.string('abc')).be.equal('abc')
+        should(SMClean.string('   ')).be.equal('')
         should(SMClean.string('a', {minLength: 2})).be.equal('')
         should(SMClean.string('aa', {minLength: 2})).be.equal('aa')
         should(SMClean.string('aaaa', { maxLength: 3})).be.equal('')
@@ -152,15 +158,18 @@ describe('SMClean.js', () => {
         should(SMClean.string(0)).be.equal('0')
         should(SMClean.string(NaN)).be.equal('')
         should(SMClean.string("\u0061\u0300")).be.equal("\u00E0") // Unicode normalization
+        assert.throws(() => {
+            SMClean.string('aaaa', {minLength: 6, maxLength: 5})
+        })
     })
 
     it('Method: `time`', () => {
         let dateToTime = (date) => {
             if (typeof date === 'object') {
-                return parseInt(date.getTime() / 1000)
+                return parseInt((date.getTime() / 1000) + '', 10)
             }
             else {
-                return parseInt(date / 1000)
+                return parseInt((date / 1000) + '', 10)
             }
         }
         let now = new Date()
@@ -192,7 +201,7 @@ describe('SMClean.js', () => {
         should(t).be.an.instanceOf(Date)
         should(dateToTime(t)).be.equal(1416311700)
 
-        t = SMClean.time('2014-11-18T11:55:00') // Should assume UTC
+        t = SMClean.time('2014-11-18T11:55:00') // Should assume system timezone (passing Etc/UTC via env var)
         should(t).be.an.instanceOf(Date)
         should(dateToTime(t)).be.equal(1416311700)
 
