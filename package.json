@@ -1,6 +1,6 @@
 {
   "name": "smclean",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "String cleanup utilities and input sanitization",
   "main": "dist/SMClean.js",
   "directories": {
@@ -37,7 +37,7 @@
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.21",
     "smhelper": "^1.2.0",
-    "validator": "^10.6.0"
+    "validator": "^10.7.0"
   },
   "devDependencies": {
     "@types/mocha": "^5.2.5",
