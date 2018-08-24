@@ -39,8 +39,8 @@ The `SMClean` object contains the following methods:
 - **`int(val)`**: Cleans a string representing an integer; invalid inputs are converted to 0.
 - **`objectId(val)`**: Cleans a string representing a MongoDB ObjectId. Returns null for invalid input.
 - **`password(val, options)`**: Cleans a password so it's a string, removing all Unicode ones (because of issues with encoding, homographs, etc), as well as ASCII control characters. Returns null for input that doesn't satisfy the requirements. The options parameter is an object with the following keys and default values:
-  - `options.minLength = 0` When set to a positive integer, if the string is shorter than minLength it will be rejected and an empty string is returned by the method
-  - `options.maxLength = 0` When set to a positive integer, if the string is longer than maxLength it will be rejected and an empty string is returned by the method
+  - `options.minLength = 0` When set to a positive integer, if the string is shorter than minLength it will be rejected and null is returned by the method
+  - `options.maxLength = 0` When set to a positive integer, if the string is longer than maxLength it will be rejected and null is returned by the method
 - **`string(val, options)`**: Cleans a string: normalizes Unicode characters (canonicalize to NFC), trims whitespaces from the beginning and end, strips ASCII control characters (optionally preserving newline characters), and encodes HTML special characters/tags. Returns an empty string if input is invalid. The options parameter is an object with the following keys and default values:
   - `options.keepHTML = false` If false, HTML special characters are converted to their entities, to protect against XSS attacks
   - `options.keepNewLines = false` If false, newline characters (\n and \r) are stripped from the string

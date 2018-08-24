@@ -88,8 +88,8 @@
 					<li><strong><code>int(val)</code></strong>: Cleans a string representing an integer; invalid inputs are converted to 0.</li>
 					<li><strong><code>objectId(val)</code></strong>: Cleans a string representing a MongoDB ObjectId. Returns null for invalid input.</li>
 					<li><strong><code>password(val, options)</code></strong>: Cleans a password so it&#39;s a string, removing all Unicode ones (because of issues with encoding, homographs, etc), as well as ASCII control characters. Returns null for input that doesn&#39;t satisfy the requirements. The options parameter is an object with the following keys and default values:<ul>
-							<li><code>options.minLength = 0</code> When set to a positive integer, if the string is shorter than minLength it will be rejected and an empty string is returned by the method</li>
-							<li><code>options.maxLength = 0</code> When set to a positive integer, if the string is longer than maxLength it will be rejected and an empty string is returned by the method</li>
+							<li><code>options.minLength = 0</code> When set to a positive integer, if the string is shorter than minLength it will be rejected and null is returned by the method</li>
+							<li><code>options.maxLength = 0</code> When set to a positive integer, if the string is longer than maxLength it will be rejected and null is returned by the method</li>
 						</ul>
 					</li>
 					<li><strong><code>string(val, options)</code></strong>: Cleans a string: normalizes Unicode characters (canonicalize to NFC), trims whitespaces from the beginning and end, strips ASCII control characters (optionally preserving newline characters), and encodes HTML special characters/tags. Returns an empty string if input is invalid. The options parameter is an object with the following keys and default values:<ul>
