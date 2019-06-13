@@ -1,5 +1,6 @@
 # SMClean
 
+[![Build Status](https://dev.azure.com/italypaleale/italypaleale/_apis/build/status/ItalyPaleAle.SMClean?branchName=master)](https://dev.azure.com/italypaleale/italypaleale/_build/latest?definitionId=19&branchName=master)
 [![Dependency Status](https://david-dm.org/ItalyPaleAle/SMClean.svg?style=flat)](https://david-dm.org/ItalyPaleAle/SMClean)
 [![devDependency Status](https://david-dm.org/ItalyPaleAle/SMClean/dev-status.svg?style=flat)](https://david-dm.org/ItalyPaleAle/SMClean#info=devDependencies)
 
