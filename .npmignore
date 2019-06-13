@@ -1,10 +1,15 @@
-.travis.yml
 .eslintignore
 .eslintrc.yml
 .vscode
+.nojekyll
+.nyc_output
 docs
 test
 coverage
 src
 tsconfig.json
 tslint.json
+test-results.xml
+azure-pipelines.yaml
+
+smclean-*.tgz
